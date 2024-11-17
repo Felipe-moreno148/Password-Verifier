@@ -8,22 +8,27 @@ async function passwordVerifier() {
     return passwordVerifier();
   }
   if (!password.match(/^.*[0-9].*$/)) {
+    console.clear();
     console.log(" A senha deve ter pelo menos um número. ");
     return passwordVerifier();
   }
-  if (password.length < 8) {
-    console.log(" A senha deve ter pelo menos 8 caracteres. ");
+  if (password.length < 12) {
+    console.clear();
+    console.log(" A senha deve ter pelo menos 12 caracteres. ");
     return passwordVerifier();
   }
   if (!password.match(/^.*[a-z].*$/)) {
+    console.clear();
     console.log(" A senha deve ter pelo menos uma letra minúscula. ");
     return passwordVerifier();
   }
   if (!password.match(/^.*[A-Z].*$/)) {
+    console.clear();
     console.log(" A senha deve ter pelo menos uma letra maiúscula. ");
     return passwordVerifier();
   }
   if (!password.match(/[@#$%^&*()<>';:=!^-]/g)) {
+    console.clear();
     console.log(" A senha deve ter pelo menos um caractere especial. ");
     return passwordVerifier();
   }
