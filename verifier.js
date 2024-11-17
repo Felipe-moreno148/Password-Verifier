@@ -1,31 +1,36 @@
-import { select, input } from "@inquirer/prompts";
+import { input } from "@inquirer/prompts";
 
-function passwordVerifier() {
-  const userPassword = document.getElementById("password").value;
-  const result = document.getElementById("return");
-  const specialCharacters = []
-  let errorMessage = "";
-  if (userPassword.length == 0) {
-    errorMessage += ' Digite uma senha. ';
+async function passwordVerifier() {
+
+  let password = await input({message: 'Digite sua senha'})
+
+  if (password.length == 0) {
+    console.log(' Digite uma senha. ');
   }
-  if (!userPassword.match(/^.*[0-9].*$/)) {
-    errorMessage += ' A senha deve ter pelo menos um número. ';
+  if (!password.match(/^.*[0-9].*$/)) {
+    console.log(' A senha deve ter pelo menos um número. ');
   }
-  if (userPassword.length < 8) {
-    errorMessage += ' A senha deve ter pelo menos 8 caracteres. ';
+  if (password.length < 8) {
+    console.log(' A senha deve ter pelo menos 8 caracteres. ');
   }
-  if (!userPassword.match(/^.*[a-z].*$/)) {
-    errorMessage += ' A senha deve ter pelo menos uma letra minúscula. ';
+  if (!password.match(/^.*[a-z].*$/)) {
+    console.log(' A senha deve ter pelo menos uma letra minúscula. ');
   }
-  if (!userPassword.match(/^.*[A-Z].*$/)) {
-    errorMessage += ' A senha deve ter pelo menos uma letra maiúscula. ';
+  if (!password.match(/^.*[A-Z].*$/)) {
+    console.log(' A senha deve ter pelo menos uma letra maiúscula. ') ;
   }
-  if (!userPassword.match(/[@#$%^&*()<>';:=!^-]/g)) {
-    errorMessage += ' A senha deve ter pelo menos um caractere especial. ';
+  if (!password.match(/[@#$%^&*()<>';:=!^-]/g)) {
+    console.log(' A senha deve ter pelo menos um caractere especial. ') ;
   }
 
-  result.textContent = errorMessage || "Sua senha é segura.";
-  console.log(errorMessage)
+  password = password || 'Sua senha é segura.'
 }
 
+
 export default passwordVerifier;
+
+/*
+' A senha deve ter pelo menos uma letra minúscula. '
+' A senha deve ter pelo menos uma letra maiúscula. '
+' A senha deve ter pelo menos um caractere especial. '
+*/
