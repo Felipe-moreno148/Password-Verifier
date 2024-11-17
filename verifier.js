@@ -33,11 +33,13 @@ async function passwordVerifier() {
     return passwordVerifier();
   }
 
-  password = password || "Sua senha é segura.";
   console.log("sua senha é segura.");
+  console.log('')
+  console.log(password)
 }
 
 async function start() {
+  console.clear()
   passwordVerifier();
 }
 
