@@ -1,3 +1,5 @@
+import { select, input } from "@inquirer/prompts";
+
 function passwordVerifier() {
   const userPassword = document.getElementById("password").value;
   const result = document.getElementById("return");
@@ -27,7 +29,3 @@ function passwordVerifier() {
 }
 
 export default passwordVerifier;
-/* $&+,:;=?@#|'<>.-^*()%!
-   " A senha deve ter pelo menos um caractere especial. "
-   @#$%^&*()<>';:=
-*/
